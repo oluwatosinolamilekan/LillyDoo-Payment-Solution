@@ -7,4 +7,6 @@ namespace App\Machine\Firmware;
 interface FirmwareInterface
 {
     public function getSlots(): array;
+
+    public function transactionsDetails(): array;
 }

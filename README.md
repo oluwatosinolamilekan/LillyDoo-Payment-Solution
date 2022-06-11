@@ -76,3 +76,20 @@ Don't forget about edge case scenarios like:
 - Going with TDD approach and writing unit tests upfront will help you to not miss important parts of implementation
 - Static analysis tools will help to avoid errors which are hard to spot from first sight
 - We like slevomat ;)
+
+## Technologies
+
+- PHP 8.1
+
+### How to install the application
+Below are the steps you need to successfully set up and run the application.
+
+- Clone the app from the repository and cd into the root directory of the app
+```
+ composer install
+```
+
+### How to run Test
+```
+ ./vendor/bin/phpunit  
+```

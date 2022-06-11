@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Machine\Firmware\WorkingPrototypeFirmware;
 use App\Machine\SnackMachine;
-use App\Services\Product\ItemsInStock;
 use Exception;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
@@ -33,24 +32,22 @@ final class ShowStockCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $helper = $this->getHelper('question');
-        $qRow = new Question("Input numbers of rows  e.g 2: ", '2');
-        $qColumn = new Question("Input numbers of column e.g 3: ", '3');
+        /*
+            $helper = $this->getHelper('question');
+            $qColumn = new Question("Input numbers of column e.g 3: ", '3');
+            $qRow = new Question("Input numbers of rows  e.g 2: ", '2');
 
-        //Get Input
-        $row = $helper->ask($input, $output, $qRow);
-        if(empty($row)){
-            throw new Exception('Input should start from atleast one');
-        }
-        $column = $helper->ask($input, $output, $qColumn);
-        if(empty($column)){
-            throw new Exception('Input should start from atleast one');
-        }
-
-//        $rowNumber = $helper->ask($input, $output, $row);
-//        $explode = implode('x', $matrixNumbers);
-        (new ItemsInStock($row, $column))->getSlots();
-        $snackMachine = (new SnackMachine(new ItemsInStock($row, $column)))->loadMachine();
+            //Get Input
+            $row = $helper->ask($input, $output, $qRow);
+            if(empty($row)){
+                throw new Exception('Input should start from atleast one');
+            }
+            $column = $helper->ask($input, $output, $qColumn);
+            if(empty($column)){
+                throw new Exception('Input should start from atleast one');
+            }
+         */
+        $snackMachine = (new SnackMachine(new WorkingPrototypeFirmware("2", "2")))->loadMachine();
 
         $table = new Table($output);
         $table->setHeaders($snackMachine['header'])
