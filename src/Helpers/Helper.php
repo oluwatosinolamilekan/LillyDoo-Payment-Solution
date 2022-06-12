@@ -6,33 +6,48 @@ class Helper
 {
     /**
      * @return string[]
+     * @throws \Exception
      */
     public static function generateHeader($column): array
     {
         $header = [""];
+        if($column >  26) throw new \Exception('We only have 26 Alphabet...');
         for ($x = 0; $x < $column; $x++) {
             $header[] = range('a','z')[$x];
         }
         return $header;
     }
 
-    public static function generateRows($num): array
+
+    public static function generateRowlandColumn($row, $column): array
     {
         $rows = [];
-        $list = array_rand(self::itemList(), $num);
-        for($x = 0; $x < $num; $x++){
-            $rows[] = [$x+1, $list];
+        for($x = 0; $x < $row; $x++){
+            $rows[] = [$x+1, ... self::itemList($column)];
         }
         return $rows;
     }
 
-    public static function itemList(): array
+    public static function itemList($column)
     {
-        return [
+        $items =  [
             "Coke",
             "Mars",
             "M&M's",
-            "Pepsi"
+            "Pepsi",
+            "Red Pepper",
+            "Voo",
+            "CASG",
+            "Wale",
+            "Pepper",
+            "Chips",
         ];
+
+        $r = [];
+        foreach (range(1, $column) as $key => $value){
+            $rand =  array_rand($items);
+            $r[] = $items[$rand];
+        }
+        return $r;
     }
 }

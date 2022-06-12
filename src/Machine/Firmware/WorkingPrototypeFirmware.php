@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Machine\Firmware;
 
 use App\Helpers\Helper;
+use Exception;
 
 class WorkingPrototypeFirmware implements FirmwareInterface
 {
@@ -17,16 +18,13 @@ class WorkingPrototypeFirmware implements FirmwareInterface
 
     /**
      * @return array
+     * @throws Exception
      */
     public function getSlots(): array
     {
         return [
             "header" => Helper::generateHeader($this->column),
-//            "data" => Helper::generateRows($this->row),
-            "data" => [
-                ["1", "Mars", "Coke"],
-                ["2", "M&M's", "Pepsi"]
-            ]
+            "data" => Helper::generateRowlandColumn($this->row, $this->column),
         ];
     }
 
