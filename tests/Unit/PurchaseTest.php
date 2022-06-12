@@ -39,4 +39,9 @@ class PurchaseTest extends BaseTestCase
         $this->assertFalse(in_array(1000, self::Amounts));
     }
 
+    public function test_it_has_coins()
+    {
+        $snackMachine = $this->loadMachine(self::Amount,self::Quantity);
+        $this->assertIsArray($snackMachine['coins']);
+    }
 }

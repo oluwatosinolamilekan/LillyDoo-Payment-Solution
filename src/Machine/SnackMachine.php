@@ -33,7 +33,7 @@ class SnackMachine implements MachineInterface
         $change = (float) $amount - $totalAmount;
         $coins = (new ConvertChangeToCoins())->action($change);
         return [
-            'changeCoins' => $coins,
+            'coins' => $coins,
             'change' => $change,
             'amount' => $amount,
             'quantity' => $quantity,
