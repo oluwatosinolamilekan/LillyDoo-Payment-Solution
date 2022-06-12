@@ -8,6 +8,7 @@ class PurchaseTest extends BaseTestCase
 {
     const Quantity = 2;
     const Amount = 10;
+    const Amounts = [5,10,20,50];
 
     public function test_it_has_equal_quantity()
     {
@@ -25,6 +26,18 @@ class PurchaseTest extends BaseTestCase
     {
         $snackMachine = $this->loadMachine(self::Amount,self::Quantity);
         $this->assertNotNull("null", $snackMachine['change']);
+    }
+
+    public function test_it_has_correct_amount()
+    {
+        $confirmAmount = in_array(self::Amount, self::Amounts);
+        $this->assertTrue($confirmAmount);
+    }
+
+    public function test_it_has_wrong_input_amount()
+    {
+        $confirmAmount = in_array(1000, self::Amounts);
+        $this->assertFalse($confirmAmount);
     }
 
 }
