@@ -41,17 +41,4 @@ class WorkingPrototypeFirmware implements FirmwareInterface
         ];
     }
 
-    /**
-     * @return array
-     */
-    private function generateData(): array
-    {
-        $input = $this->items;
-        shuffle($input);
-        $data = [];
-        for($x = 0; $x < $this->row; $x++){
-            $data[] = array_chunk(array_slice($input,0, count($this->items)), count($this->items));
-        }
-        return $data;
-    }
 }
