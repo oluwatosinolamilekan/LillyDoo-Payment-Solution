@@ -22,11 +22,11 @@ class WorkingPrototypeFirmware implements FirmwareInterface
     {
         return [
             "header" => Helper::generateHeader($this->column),
-            "data" => Helper::generateRows($this->row),
-//            "data" => [
-//                ["1", "Mars", "Coke"],
-//                ["2", "M&M's", "Pepsi"]
-//            ]
+//            "data" => Helper::generateRows($this->row),
+            "data" => [
+                ["1", "Mars", "Coke"],
+                ["2", "M&M's", "Pepsi"]
+            ]
         ];
     }
 
