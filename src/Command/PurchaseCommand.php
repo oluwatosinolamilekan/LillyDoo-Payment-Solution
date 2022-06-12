@@ -65,9 +65,8 @@ final class PurchaseCommand extends Command
         }
 
         $prototype = (new WorkingPrototypeFirmware('', '', $amount, $quantity));
-        $transaction = (new Transaction());
 
-         $snackMachine = (new SnackMachine($prototype))->execute($transaction);
+         $snackMachine = (new SnackMachine($prototype))->execute((new Transaction()));
          $rows = [];
          foreach ($snackMachine['changeCoins'] as $key => $value) {
              $rows[] = [$key, $value];

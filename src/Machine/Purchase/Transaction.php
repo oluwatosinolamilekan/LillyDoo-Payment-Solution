@@ -6,6 +6,6 @@ class Transaction implements TransactionInterface
 {
     public function getPaidAmount(): float
     {
-        return 10.00;
+        return 2.99;
     }
 }
