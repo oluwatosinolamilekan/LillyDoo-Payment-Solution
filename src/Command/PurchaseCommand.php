@@ -44,9 +44,9 @@ final class PurchaseCommand extends Command
             throw new Exception('Row and column of item should be specified, also with amount and quantity');
         }
 
-        [$column, $quantity, $amount] = explode(' ', $amount);
+        [$row, $quantity, $amount] = explode(' ', $amount);
 
-        if(strlen($column) != 2){
+        if(strlen($row) != 2){
             throw new Exception('Please specified the row and column. eg 2a, 1a');
         }
 
@@ -54,7 +54,7 @@ final class PurchaseCommand extends Command
             throw new Exception('Can only accept 5,10,20,50 amount');
         }
         // Confirm
-        $summary = "Row: {$column} | Quantity: {$quantity} | Amount: {$amount} ";
+        $summary = "Row: {$row} | Quantity: {$quantity} | Amount: {$amount} ";
 
 
         $qMessage = 'Please review the information: ' . PHP_EOL . $summary . PHP_EOL .
@@ -72,8 +72,7 @@ final class PurchaseCommand extends Command
              $rows[] = [$key, $value];
          }
 
-        $output->writeLn("You bought 2 packs of M&M's for {$snackMachine['totalAmount']}€, each for {$snackMachine['amount']}€");
-//        $output->writeLn("You bought 2 packs of M&M's for 5.98€, each for 2.99€");
+        $output->writeLn("You bought {$snackMachine['quantity']} packs of M&M's for {$snackMachine['totalAmount']}€, each for {$snackMachine['amount']}€");
         $output->writeLn("Your change is: {$snackMachine['change']}");
         $table = new Table($output);
         $table

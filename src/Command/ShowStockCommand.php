@@ -47,7 +47,7 @@ final class ShowStockCommand extends Command
                 throw new Exception('Input should start from atleast one');
             }
          */
-        $snackMachine = (new SnackMachine(new WorkingPrototypeFirmware("2", "2")))->loadMachine();
+        $snackMachine = (new SnackMachine(new WorkingPrototypeFirmware("3", "3")))->loadMachine();
 
         $table = new Table($output);
         $table->setHeaders($snackMachine['header'])

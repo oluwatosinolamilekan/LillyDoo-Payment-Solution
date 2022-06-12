@@ -46,4 +46,9 @@ class ConvertChangeToCoins
         }
         return $data;
     }
+
+    private function format()
+    {
+
+    }
 }

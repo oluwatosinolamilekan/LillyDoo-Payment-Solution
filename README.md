@@ -77,9 +77,6 @@ Don't forget about edge case scenarios like:
 - Static analysis tools will help to avoid errors which are hard to spot from first sight
 - We like slevomat ;)
 
-## Technologies
-
-- PHP 8.1
 
 ### How to install the application
 Below are the steps you need to successfully set up and run the application.
