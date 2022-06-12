@@ -37,6 +37,7 @@ class SnackMachine implements MachineInterface
                 'changeCoins' => $coins,
                 'change' => $change,
                 'amount' => $amount,
+                'quantity' => $quantity,
                 'totalAmount' => $totalAmount
             ];
         }catch (Exception $exception){

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Machine\Firmware;
 
+use App\Helpers\Helper;
+
 class WorkingPrototypeFirmware implements FirmwareInterface
 {
     public function __construct(
@@ -19,25 +21,13 @@ class WorkingPrototypeFirmware implements FirmwareInterface
     public function getSlots(): array
     {
         return [
-            "header" => $this->generateHeader(),
-            "data" => [
-                ["1", "Mars", "Coke"],
-                ["2", "M&M's", "Pepsi"]
-            ]
+            "header" => Helper::generateHeader($this->column),
+            "data" => Helper::generateRows($this->row),
+//            "data" => [
+//                ["1", "Mars", "Coke"],
+//                ["2", "M&M's", "Pepsi"]
+//            ]
         ];
-    }
-
-
-    /**
-     * @return string[]
-     */
-    private function generateHeader(): array
-    {
-        $header = [""];
-        for ($x = 0; $x < $this->column; $x++) {
-            $header[] = range('a','z')[$x];
-        }
-        return $header;
     }
 
     /**
